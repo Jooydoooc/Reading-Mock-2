@@ -1,5 +1,4 @@
 # Reading-Mock-2
-# Reading-Mock-2
 
 ## Vercel deployment notes
 
