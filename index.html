@@ -77,7 +77,12 @@
                 filter: hue-rotate(-90deg) saturate(2);
             }
             30% {
-@@ -335,331 +336,311 @@
+@@ -330,561 +331,514 @@
+            position: absolute;
+            z-index: 3;
+            pointer-events: none;
+        }
+
         .impact-flash {
             position: absolute;
             width: 10px;
@@ -96,6 +101,45 @@
                 opacity: 1;
                 transform: scale(1) translateY(0);
             }
+        }
+
+        @keyframes startCountdownPulse {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            20% {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+            80% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+
+        .start-countdown-overlay {
+            position: absolute;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 15, 30, 0.72);
+            border-radius: 18px;
+            z-index: 15;
+        }
+
+        .start-countdown-number {
+            color: #67e8f9;
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(103, 232, 249, 0.6);
+            animation: startCountdownPulse 0.95s ease forwards;
         }
 
         #premium-info-content::-webkit-scrollbar {
@@ -170,7 +214,7 @@
 
             <h1 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 6px; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Welcome to the CDI Listening Platform</h1>
             <p style="font-size: 13px; color: #d4af37; font-weight: 500; margin-bottom: 20px; font-style: italic;">You're not here by accident.</p>
-            <h1 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 6px; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Welcome to Reading Mock Pro</h1>
+            <h1 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 6px; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Reading Mock Pro</h1>
             <p style="font-size: 13px; color: #0F766E; font-weight: 500; margin-bottom: 20px; font-style: italic;">Train with focus.</p>
 
             <div style="text-align: left; color: #e0e0e0; font-size: 12px; line-height: 1.65; margin-bottom: 20px;">
@@ -199,6 +243,10 @@
             <button id="welcome-start-btn" style="background: linear-gradient(135deg, #0F766E 0%, #14B8A6 50%, #0F766E 100%); color: #1a1a2e; font-weight: 700; font-size: 13px; padding: 13px 26px; border: none; border-radius: 28px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(15,118,110,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.3px; display: inline-flex; align-items: center; gap: 7px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(15,118,110,0.5), inset 0 1px 0 rgba(255,255,255,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(15,118,110,0.4), inset 0 1px 0 rgba(255,255,255,0.3)';">
                 <span style="font-size: 15px;">▶</span> Start Mock
             </button>
+
+            <div id="start-countdown-overlay" class="start-countdown-overlay">
+                <div id="start-countdown-number" class="start-countdown-number">3</div>
+            </div>
 
             <p style="font-size: 9px; color: #666; margin-top: 15px;">© CDI Platform by @IELTS_AGE</p>
         </div>
@@ -460,7 +508,22 @@
                     <li>✔️ Clean, distraction-free interface</li>
                     <li>✔️ 10 Bonus Tests (from my own exam)</li>
                     <li>✔️ High-quality PDF versions for printing</li>
-@@ -682,209 +663,189 @@
+                    <li>✔️ Watermark-free PDF (not even my link)</li>
+                    <li>✔️ Life-time access</li>
+                    <li>✔️ Early access to future Volume 9 release 😉</li>
+                    <li>➕ 10 More CDI Tests will be Uploaded Soon</li>
+                </ul>
+                <span style="font-weight: 600; font-size: 11px;">🎯 Who this is for:</span>
+                <ul style="list-style: disc; padding-left: 16px; margin: 2px 0 6px 0; line-height: 1.4;">
+                    <li>January-March Test Takers</li>
+                    <li>Teachers: Class Materials (for their students)</li>
+                    <li>Those who want real practice.</li>
+                    <li>People tired of random, low-quality materials</li>
+                </ul>
+                <div style="margin: 4px 0;">
+                    <span style="font-weight: 600; font-size: 11px;">🆓 FREE DEMO TESTS</span>
+                    <a href="https://t.me/IELTS_AGE/1091" target="_blank" style="display: inline-block; margin-left: 6px; padding: 4px 10px; background: #2563eb; color: white; font-weight: 600; border-radius: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-decoration: none; font-size: 10px; vertical-align: middle;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Try Demo</a>
+                </div>
                 <div style="margin-top: 6px;">
                     <span style="font-weight: 600; font-size: 11px;">🛫 Price:</span><br>
                     <span style="font-size: 14px; font-weight: bold; color: #16a34a;">149,000 so'm</span><br>
@@ -676,7 +739,7 @@
             isDragging = false;
         }
 
-@@ -1684,61 +1645,61 @@
+@@ -1684,61 +1638,61 @@
                         <table class="w-full text-sm mb-4 border border-gray-300">
                             <tr class="border-b border-gray-300">
                                 <td class="border-r border-gray-300 p-2 font-bold">TRUE</td>
@@ -740,7 +803,7 @@
                 const gapFillQuestions = part.questions.filter(q => q.type === 'GAP_FILL').sort((a, b) => a.id - b.id);
                 if (gapFillQuestions.length > 0) {
                     const gapSection = document.createElement('div');
-@@ -2026,100 +1987,100 @@
+@@ -2026,100 +1980,100 @@
 
                 // Questions 20-21: Multiple choice (choose two)
                 const multiChoiceReasons = part.questions.find(q => q.type === "MULTIPLE_CHOICE_MULTI" && q.id === 20);
@@ -843,7 +906,7 @@
                 }
 
                 // Questions 24-26: Summary completion
-@@ -2504,72 +2465,72 @@
+@@ -2504,72 +2458,72 @@
             }
 
             // YES/NO/NOT GIVEN Questions (37-40) for Part 3
@@ -920,7 +983,7 @@
             if (summaryQuestions.filter(q => q.id >= 11 && q.id <= 13).length > 0) {
                 const section = document.createElement('div');
                 section.className = 'mb-6';
-@@ -2835,294 +2796,294 @@
+@@ -2835,294 +2789,294 @@
             if (multipleChoiceQuestions.filter(q => q.id === 40).length > 0) {
                 const section = document.createElement('div');
                 section.className = 'mb-6';
@@ -1226,7 +1289,7 @@
                 updateQuestionIndicators();
             });
 
-@@ -3157,51 +3118,51 @@
+@@ -3157,51 +3111,51 @@
                     zone.classList.remove('border-blue-500', 'bg-blue-50');
                 });
                 
@@ -1279,7 +1342,7 @@
             draggableOptions.forEach(option => {
                 option.addEventListener('dragstart', (e) => {
                     e.dataTransfer.setData('text/plain', option.dataset.value);
-@@ -3355,58 +3316,58 @@
+@@ -3355,58 +3309,58 @@
                     <div class="bg-white border-2 border-gray-300 rounded px-2 py-1 text-center cursor-move hover:bg-blue-50 hover:border-blue-400 transition-colors select-none" data-value="E">
                         <div class="font-bold text-sm">E</div>
                         <div class="text-xs">1825</div>
@@ -1340,7 +1403,7 @@
                     if (e.target.textContent === '×') {
                         answers[question.id] = '';
                         updateMatchingDisplay(question.id, '');
-@@ -3437,51 +3398,51 @@
+@@ -3437,51 +3391,51 @@
                 // For summary drag-drop questions, extract just the descriptive text without the letter
                 if (matchingOption) {
                     const boldSpan = matchingOption.querySelector('span.font-bold');
@@ -1393,7 +1456,7 @@
 
             testData.parts.forEach((part, index) => {
                 const isActive = currentPart === part.id;
-@@ -3489,95 +3450,96 @@
+@@ -3489,95 +3443,96 @@
                 const partDiv = document.createElement('div');
                 partDiv.className = 'flex items-center min-w-0 relative';
 
@@ -1491,7 +1554,7 @@
                             }
 
                             results.push({
-@@ -4049,101 +4011,131 @@
+@@ -4049,101 +4004,131 @@
                     band: 'Band 1 — Non-User',
                     typical: '0–3 / 40',
                     description: 'Understand only a few isolated words. Cannot follow sentences or instructions. No basic vocabulary. Cannot recognize sentence structure. Answers are random or missing.',
@@ -1625,7 +1688,90 @@
             if (!logoContainer || !electricLogo || !lightningContainer) return;
 
             const PROXIMITY_THRESHOLD = 150; // pixels from logo center to trigger
-@@ -4318,77 +4310,83 @@
+@@ -4235,160 +4220,114 @@
+                        isZapping = false;
+                        electricLogo.classList.remove('zapping');
+                        if (plasmaRing) plasmaRing.classList.remove('zapping');
+                        boltPaths.forEach((path, index) => {
+                            path.style.opacity = '0';
+                            glowPaths[index].style.opacity = '0';
+                        });
+                    }
+                }
+            }
+
+            let lastMouseX = 0, lastMouseY = 0;
+            setInterval(() => {
+                if (isZapping) {
+                    updateLightning(lastMouseX, lastMouseY);
+                }
+            }, 40);
+
+            document.addEventListener('mousemove', (e) => {
+                lastMouseX = e.clientX;
+                lastMouseY = e.clientY;
+                updateLightning(e.clientX, e.clientY);
+            });
+        })();
+
+        // Premium Modal logic with video intro and fullscreen/shrink effect (copied from Listening Mock 1)
+        (function() {
+            const premiumBtn = document.getElementById('premium-btn');
+            const premiumModalBg = document.getElementById('premium-modal-bg');
+            const closePremiumModal = document.getElementById('close-premium-modal');
+            const premiumVideo = document.getElementById('premium-intro-video');
+            const premiumVideoContainer = document.getElementById('premium-video-container');
+            const premiumInfoContent = document.getElementById('premium-info-content');
+            let shrinkTimeout;
+
+            if (premiumBtn && premiumModalBg && closePremiumModal && premiumVideo && premiumVideoContainer) {
+                premiumBtn.addEventListener('click', function() {
+                    premiumModalBg.style.display = 'flex';
+                    premiumVideoContainer.style.display = 'flex';
+                    premiumVideo.style.maxWidth = '100%';
+                    premiumVideo.style.height = '60vh';
+                    premiumVideo.style.width = '100%';
+                    premiumVideoContainer.style.background = 'black';
+                    premiumVideo.currentTime = 0;
+                    premiumVideo.play();
+                    closePremiumModal.style.display = 'none';
+                    if (premiumInfoContent) {
+                        premiumInfoContent.style.opacity = '0';
+                        premiumInfoContent.style.pointerEvents = 'none';
+                    }
+                    if (premiumVideo.requestFullscreen) {
+                        premiumVideo.requestFullscreen();
+                    } else if (premiumVideo.webkitRequestFullscreen) {
+                        premiumVideo.webkitRequestFullscreen();
+                    } else if (premiumVideo.msRequestFullscreen) {
+                        premiumVideo.msRequestFullscreen();
+                    }
+                    clearTimeout(shrinkTimeout);
+                    shrinkTimeout = setTimeout(function() {
+                        if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                            if (document.exitFullscreen) {
+                                document.exitFullscreen();
+                            } else if (document.webkitExitFullscreen) {
+                                document.webkitExitFullscreen();
+                            } else if (document.msExitFullscreen) {
+                                document.msExitFullscreen();
+                            }
+                        }
+                        premiumVideo.style.maxWidth = '320px';
+                        premiumVideo.style.height = '';
+                        premiumVideo.style.width = '';
+                        premiumVideoContainer.style.background = '';
+                        premiumVideoContainer.style.justifyContent = 'center';
+                        premiumVideoContainer.style.alignItems = 'center';
+                        premiumInfoContent.style.opacity = '1';
+                        premiumInfoContent.style.pointerEvents = 'auto';
+                        closePremiumModal.style.display = 'block';
+                    }, 7000);
+                });
+
+                closePremiumModal.addEventListener('click', function() {
+                    premiumModalBg.style.display = 'none';
+                    premiumVideo.pause();
                     premiumVideoContainer.style.display = 'none';
                     clearTimeout(shrinkTimeout);
                 });
@@ -1645,11 +1791,16 @@
         (function() {
             const welcomeModalBg = document.getElementById('welcome-modal-bg');
             const welcomeStartBtn = document.getElementById('welcome-start-btn');
+            const startCountdownOverlay = document.getElementById('start-countdown-overlay');
+            const startCountdownNumber = document.getElementById('start-countdown-number');
 
             if (welcomeModalBg && welcomeStartBtn) {
                 welcomeModalBg.style.display = 'flex';
 
                 welcomeStartBtn.addEventListener('click', function() {
+                welcomeStartBtn.addEventListener('click', async function() {
+                    welcomeStartBtn.disabled = true;
+                    await runStartCountdown(startCountdownOverlay, startCountdownNumber);
                     playStartSound();
                     hasTestStarted = true;
                     startTimer();
@@ -1659,6 +1810,23 @@
                         welcomeModalBg.style.display = 'none';
                     }, 800);
                 });
+            }
+
+            async function runStartCountdown(overlay, numberEl) {
+                if (!overlay || !numberEl) return;
+
+                overlay.style.display = 'flex';
+                const sequence = ['3', '2', '1', 'GO'];
+
+                for (const item of sequence) {
+                    numberEl.textContent = item;
+                    numberEl.style.animation = 'none';
+                    numberEl.offsetHeight;
+                    numberEl.style.animation = 'startCountdownPulse 0.95s ease forwards';
+                    await new Promise(resolve => setTimeout(resolve, 900));
+                }
+
+                overlay.style.display = 'none';
             }
 
             function playStartSound() {
